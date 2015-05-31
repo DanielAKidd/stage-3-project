@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Stage 3 notes</title>
+</head>
+
+<body>
+
+	<div class="document">
+		<header>
+			<h1>
+				Classes, Objects, <abbr title="Object Oriented Programming">OOP</abbr>, and more on Python.
+			</h1>
+		</header>
+
+		<main>
+			<p>
+				A big part of programming is using code written either by yourself or others. 
+				Modules are the actual files that contain the code that we may wish to make use of; These would include Classes, Functions and variables. libraries contain modules. Python has a built-in library <a href="https://docs.python.org/2/py-modindex.html">here</a>. There is a multitude of external Python libraries to be found on the internet. To use modules we must first <em>import</em> them into our program (this is shown later in demo code). External libraries must be downloaded. <a href="https://docs.python.org/2/reference/simple_stmts.html#the-import-statement">Python reference</a>.
+			</p>
+
+			<p>
+				With that said, Kunal built a few simple programs only using functions; and showed, by increasing the complexity, that it can quickly become verbose and repetitive. In his example it was with the introduction of another movie. We found that we were writing multiple pieces of code again, similar to before the introduction of functions at the beginning of this course.
+			</p>
+
+			<p>
+				In fact we were processing similar data. In our minds the movies were the same type of thing with different characteristics such as: title, cast, duration. To think about what properties our movies have and share and what it is we wish to do with them is to think in abstract terms. Their shared properties: cast, budget, title, release date, duration, genre and what we would like to do with them: show the movie's trailer; print of it's cast; show movie's poster.
+			</p>
+
+			<p>
+				Continuing with this line of thought the movies are the same <em>objects</em>, but still different. They are both a <em>type</em> of movie. A movie in this sense is a category where for example Avatar or School of Rock are embodiments or instances of this category.
+			</p>
+
+			<p>
+				<abbr title="Object Oriented Programming">OOP</abbr> then considers all data to be objects of some type. The transition from our idea to the programming of it requires that we first identify and then model the program around these objects. 
+				Python treats categories such as: a movie, a monster, a human, a playing card and a car as <em>classes</em>; and instances of these such as: Avatar, loch ness, Kunal, Ace of Spades and the car parked outside my house are objects. A class is a template or blueprint whence instances of them can be created. 
+			</p>
+
+			<p>
+				To give an extended example with some context: we want to create some bad guys or enemies for an <abbr title="Role-playing Game">RPG</abbr> like game. Firstly, we list the types desired; wizard, golem etc. Then, we list the things to remember of them or the data about each type; and the things our objects must be able to do.
+				These bad guys will have certain properties in common, such as: Health Points, Defense, Attack. Also they will have similar functions, a basic physical attack or a defensive move perhaps. Now if we generalize these types it should be obvious (i hope) that they are all a type of creature or monster or some such thing. The, let's say, creature is the class, our template, and the Wizard or Golem is an instance of this class - them self an object.
+			</p>
+			<img src="images/class.png">
+
+			<p>
+				Here is some demo code where i instantiate an object of our class, and invoke an attribute and a method in turn.
+			</p>
+			<img src="images/demo.png">
+
+			<p>
+				As it stands our creatures will differ only by the value we pass to the 'attack_point' parameter of our class. To have an object that more closely resembles, for example, a Wizard we could either change our Creature class or create a new type. The first option would mean that our class only represents one type of creature. No more golems!?. The second option would mean we have a more specific creature (type), which is what we wanted: but would we not be repeating code again by defining attributes and methods in common with the Creature class..?
+			</p>
+			<p>
+				The concept of <em>inheritance</em> (first noted when dealing with specificity in CSS) solves this issue. We create a Wizard class that inherits the attributes and methods from the Creature class. We take whatever attributes we wish to keep and perhaps create new ones. The same applies with methods; any new methods are defined as normal: for those we wish to keep there is the option of <em>overriding</em> (that is changing) any methods our new class has inherited.<br>
+
+				In this example our Wizard class would be a descendant or child class, the Creature class would be the base or parent class.
+			</p>
+			<img src="images/advanced.png">
+			<img src="images/demo2.png">
+
+			<p>
+				Class variables are defined within the class definition (indented to it) and so belong to the class. This means that while the value can be accessed by all instances the value can only be changed by invoking the class name with dot notation. The problem (potential bug) discovered in the demo concerns 'namespaces';
+				there is a conflict where the reference/pointer shares the same name as another.
+				<a href="http://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide">good read on class variables/attributes</a>
+			</p>
+			<p>
+				The 'super' built-in function helps to access base class methods. This is usually used within the descendant class's init method (as by declaring this we override the base class init method), but in general it used to access overridden methods. <a href="https://docs.python.org/2/library/functions.html#super">Link here</a>.
+			</p>
+			<p>
+				The purpose of our Creature class inheriting from 'object' is to do with a change by the Python development team from what is called 'old-style' and 'new-style' classes. <a href="https://www.python.org/doc/newstyle/">Link here</a>. Or The more readable stackoverflow post can be found <a href="http://stackoverflow.com/questions/54867/what-is-the-difference-between-old-style-and-new-style-classes-in-python">here</a>.
+			</p>
+
+			<!-- To create a visual separator -->
+			<div id="sep"></div>
+
+			<p>
+				Inheritance defines the interaction between the HTML and CSS languages. CSS selectors, in abstract terms, are much like classes in Python. They are templates; and the html elements are objects. 
+			</p>
+			<p>
+				HTML alone makes use of the concept of inheritance. Nested elements inherit all non-box related properties from all of their antecedents (the rules of specificity declare which properties are actually applied). This method of applying inheritance, via the syntactic idiom of declaring elements within elements, is just that, a method. Inheritance implies a passing on of something (from element to element) in this case it is styling properties. 
+			</p>
+			<p>
+				Styling properties override less specific ones; much like how child classes in Python can override their base class methods.
+			</p>
+			<p>
+				There is an overall comparison that can be drawn between OOP and the web design we have so far learnt in this course. The elements of a web page can be considered in much the same way as 'objects' in programming. Many elements share characteristics (or styling properties) not unlike how objects share data (or attributes). Any interaction elements offer (or the things they do) are also similar to the things objects do (or their methods). In short the development plans for a web page and a Python program will in many respects, and in an abstract sense at least, overlap.
+			</p>
+
+		</main>
+
+	</div>
+
+</body>
+
+</html>

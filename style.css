@@ -1,0 +1,48 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #3E72AD;
+}
+
+header {
+	width: 100%;
+	margin: 15px;
+}
+
+main {
+	display: block;
+	height: 100%;
+	margin: 50px 40px;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	text-indent: 20px;
+}
+
+.document {
+	background-color: #F7F7F0;
+	box-shadow: 0px 0px 12px 2px #000000; 
+	margin: 100px 150px;
+	display: flex;
+	flex-flow: row wrap;
+	line-height: 1.5;
+	/* understand this */
+	font: 16px/28px Helvetica,Arial,sans-serif;
+	/* temp till content fills */
+}
+
+#sep {
+	margin: 30px auto;
+	border-top: 3px solid #FF9626;
+	width: 80%;
+}
