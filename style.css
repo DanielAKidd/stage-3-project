@@ -42,7 +42,5 @@ p {
 }
 
 #sep {
-	margin: 30px auto;
-	border-top: 3px solid #FF9626;
-	width: 80%;
+	margin: 1em auto;
 }
